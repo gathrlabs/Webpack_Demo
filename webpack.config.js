@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 const VENDOR_LIBS = [
   'react', 'lodash', 'redux', 'react-redux', 'react-dom',
   'faker', 'react-input-range', 'redux-form', 'redux-thunk'
@@ -15,7 +16,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     //[name] grabs the name of the file, [chunkhash] is a unique strong of characters for
-    //cache busting for the case of ensuring users always get latest version
+    //cache busting for the case of ensuring users always get latest version by downloading by new filename
     filename: '[name].[chunkhash].js'
   },
   module: {
