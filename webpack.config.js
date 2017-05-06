@@ -14,7 +14,9 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    //[name] grabs the name of the file, [chunkhash] is a unique strong of characters for
+    //cache busting for the case of ensuring users always get latest version
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -32,7 +34,7 @@ module.exports = {
   plugins: [
     //this plugin saves from including everything in the vendor file, without overlapping with the bundle.js file
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      name: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html' 
