@@ -7,13 +7,17 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  moduel: {
+  module: {
     rules: [
       {
         use: 'babel-loader',
         test: /\.js$/,
-        exlude: /node-modules/
-      } 
+        exclude: /node-modules/
+      },
+      {
+        use: ['style-loader', 'css-loader'],
+        test: /\.css$/
+      }
     ]
   }
 };
